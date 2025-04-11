@@ -1,8 +1,8 @@
 /*начало кода header*/
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('.header');
-    const burger = document.querySelector('.header__burger');
-    const menu = document.querySelector('.header__menu');
+    const header = document.querySelector('[data-header]');
+    const burger = document.querySelector('[data-burger]');
+    const menu = document.querySelector('[data-menu]');
 
     function getScrollbarWidth() {
         const outer = document.createElement('div');
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    /*Логика сворачивания меню при клике по пункту*/
+    /* Логика сворачивания меню при клике по пункту */
     const menuItems = document.querySelectorAll('.header__menu-item a'); // Выбираем все ссылки в меню
     menuItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /*Подсветка активного пункта меню*/
+    /* Подсветка активного пункта меню */
     const sections = document.querySelectorAll('.section');
     const menuLinks = document.querySelectorAll('.header__menu-item a');
 
@@ -87,13 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setActiveSection();
 
-    /*Слушаем прокрутку*/
     window.addEventListener('scroll', setActiveSection);
 });
-/*конец кода header*/
+/* конец кода header */
 
 
-/*начало кода клиентской валидации*/
+/* начало валидации формы */
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('send-form');
     const errorMessage = document.getElementById('error-message');
@@ -144,4 +143,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-/*конец кода клиентской валидации*/
+/* конец валидации формы */
+
+/* кнопка с ссылками */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('toggleContacts');
+    const contactsBlock = document.querySelector('.contacts');
+
+    toggleButton.addEventListener('click', () => {
+        contactsBlock.classList.toggle('show');
+        toggleButton.textContent = contactsBlock.classList.contains('show')
+            ? 'Close'
+            : 'Contacts';
+    });
+});
